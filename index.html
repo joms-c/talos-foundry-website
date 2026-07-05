@@ -62,42 +62,75 @@
     [data-reveal].d1 { animation-delay: .08s; }
     [data-reveal].d2 { animation-delay: .16s; }
     [data-reveal].d3 { animation-delay: .24s; }
+
+    @media (max-width: 900px) {
+      .nav-links a:not(.nav-cta) { display: none !important; }
+      .nav { padding: 18px 20px !important; }
+
+      .hero { grid-template-columns: 1fr !important; padding: 64px 20px 70px !important; gap: 40px !important; }
+      .hero-h1 { font-size: 38px !important; }
+      .hero-copy { font-size: 16.5px !important; max-width: none !important; }
+      .hero-ctas { flex-direction: column !important; align-items: stretch !important; }
+      .hero-ctas a { text-align: center !important; }
+
+      .stat-strip { padding: 20px !important; font-size: 11px !important; text-align: center; }
+      .stat-strip span { white-space: normal !important; }
+
+      section[id] { padding: 80px 20px !important; }
+      .section-h2 { font-size: 30px !important; }
+
+      .services-grid { grid-template-columns: 1fr !important; }
+      .process-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+      .process-line { display: none !important; }
+      .why-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .why-cards { grid-template-columns: 1fr 1fr !important; }
+
+      .cta-section { margin: 0 20px 20px !important; padding: 70px 24px !important; }
+      .cta-h2 { font-size: 32px !important; }
+
+      footer { flex-direction: column !important; gap: 14px !important; text-align: center !important; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-h1 { font-size: 32px !important; }
+      .why-cards { grid-template-columns: 1fr !important; }
+    }
   </style>
 </helmet>
 
 <div style="background: oklch(0.16 0.012 45); color: oklch(0.96 0.008 60); font-family: 'Inter', sans-serif; min-height: 100vh; overflow-x: hidden; position: relative;">
 
   <!-- NAV -->
-  <nav style="display:flex; align-items:center; justify-content:space-between; padding:24px 48px; position:sticky; top:0; z-index:50; background: oklch(0.16 0.012 45 / 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid oklch(0.32 0.02 45);">
+  <nav class="nav" style="display:flex; align-items:center; justify-content:space-between; padding:24px 48px; position:sticky; top:0; z-index:50; background: oklch(0.16 0.012 45 / 0.85); backdrop-filter: blur(10px); border-bottom: 1px solid oklch(0.32 0.02 45);">
     <div style="display:flex; align-items:center; gap:12px;">
       <div style="width:34px; height:34px; border-radius:4px; background: linear-gradient(145deg, oklch(0.72 0.15 48), oklch(0.5 0.14 40)); display:flex; align-items:center; justify-content:center; box-shadow: 0 0 18px oklch(0.65 0.16 45 / 0.5);">
         <div style="width:12px; height:12px; background: oklch(0.16 0.012 45); transform: rotate(45deg);"></div>
       </div>
       <span style="font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:19px; letter-spacing:0.01em;">TALOS FOUNDRY</span>
     </div>
-    <div style="display:flex; align-items:center; gap:40px;">
+    <div class="nav-links" style="display:flex; align-items:center; gap:40px;">
       <a href="#services" style="color: oklch(0.8 0.01 60); text-decoration:none; font-size:15px; font-weight:500;">Services</a>
       <a href="#process" style="color: oklch(0.8 0.01 60); text-decoration:none; font-size:15px; font-weight:500;">Process</a>
       <a href="#why" style="color: oklch(0.8 0.01 60); text-decoration:none; font-size:15px; font-weight:500;">Why Us</a>
-      <a href="#contact" style="color: oklch(0.16 0.012 45); text-decoration:none; font-size:15px; font-weight:700; background: oklch(0.7 0.15 47); padding:10px 22px; border-radius:3px;">Book a Call</a>
+      <a href="#contact" class="nav-cta" style="color: oklch(0.16 0.012 45); text-decoration:none; font-size:15px; font-weight:700; background: oklch(0.7 0.15 47); padding:10px 22px; border-radius:3px;">Book a Call</a>
     </div>
   </nav>
 
   <!-- HERO -->
-  <section style="position:relative; padding:120px 48px 140px; max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;">
+  <section class="hero" style="position:relative; padding:120px 48px 140px; max-width:1400px; margin:0 auto; display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;">
     <div style="position:absolute; top:-100px; right:-120px; width:600px; height:600px; border-radius:50%; background: radial-gradient(circle, oklch(0.6 0.16 45 / 0.28), transparent 70%); filter:blur(40px); animation: glow-pulse 6s ease-in-out infinite; pointer-events:none;"></div>
     <div data-reveal style="position:relative; z-index:2;">
       <div style="display:inline-flex; align-items:center; gap:8px; border:1px solid oklch(0.55 0.13 45); border-radius:100px; padding:7px 16px; margin-bottom:28px;">
         <span style="width:6px; height:6px; border-radius:50%; background: oklch(0.7 0.16 45); box-shadow: 0 0 8px oklch(0.7 0.16 45);"></span>
         <span style="font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:0.08em; color: oklch(0.78 0.1 45); text-transform:uppercase;">Bronze roots. Silicon future.</span>
       </div>
-      <h1 style="font-family:'Space Grotesk', sans-serif; font-size:66px; line-height:1.04; font-weight:700; margin:0 0 26px; letter-spacing:-0.01em;">
+      <h1 class="hero-h1" style="font-family:'Space Grotesk', sans-serif; font-size:66px; line-height:1.04; font-weight:700; margin:0 0 26px; letter-spacing:-0.01em;">
         Automatons for the modern business.
       </h1>
-      <p style="font-size:19px; line-height:1.6; color: oklch(0.72 0.015 55); max-width:540px; margin:0 0 40px;">
+      <p class="hero-copy" style="font-size:19px; line-height:1.6; color: oklch(0.72 0.015 55); max-width:540px; margin:0 0 40px;">
         Talos Foundry designs and builds AI agents that take on the manual, repetitive work running through your business &mdash; so your team moves faster, ships more, and spends less time buried in the tedious parts of the job.
       </p>
-      <div style="display:flex; gap:16px; align-items:center;">
+      <div class="hero-ctas" style="display:flex; gap:16px; align-items:center;">
         <a href="#contact" style="background: oklch(0.7 0.15 47); color: oklch(0.14 0.01 45); font-weight:700; padding:16px 30px; border-radius:4px; text-decoration:none; font-size:16px;">Start Automating &rarr;</a>
         <a href="#services" style="color: oklch(0.9 0.01 55); font-weight:600; padding:16px 10px; text-decoration:none; font-size:16px; border-bottom:1px solid oklch(0.4 0.02 50);">See what we build</a>
       </div>
@@ -183,7 +216,7 @@
   </section>
 
   <!-- LOGO / STAT STRIP -->
-  <section style="border-top:1px solid oklch(0.3 0.02 45); border-bottom:1px solid oklch(0.3 0.02 45); padding:28px 48px; display:flex; justify-content:center; gap:14px; align-items:center;">
+  <section class="stat-strip" style="border-top:1px solid oklch(0.3 0.02 45); border-bottom:1px solid oklch(0.3 0.02 45); padding:28px 48px; display:flex; justify-content:center; gap:14px; align-items:center;">
     <span style="font-family:'IBM Plex Mono', monospace; font-size:13px; color: oklch(0.6 0.02 50); letter-spacing:0.06em; text-transform:uppercase;">Founded 2026 &mdash; Now taking on founding client partners</span>
   </section>
 
@@ -191,11 +224,11 @@
   <section id="services" style="padding:130px 48px; max-width:1400px; margin:0 auto;">
     <div data-reveal style="max-width:680px; margin:0 auto 70px; text-align:center;">
       <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; color: oklch(0.7 0.15 47); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">What We Build</div>
-      <h2 style="font-family:'Space Grotesk', sans-serif; font-size:42px; font-weight:700; margin:0 0 18px; line-height:1.15;">Agents that take the tedious part off your team's plate.</h2>
+      <h2 class="section-h2" style="font-family:'Space Grotesk', sans-serif; font-size:42px; font-weight:700; margin:0 0 18px; line-height:1.15;">Agents that take the tedious part off your team's plate.</h2>
       <p style="color: oklch(0.68 0.015 55); font-size:17px; line-height:1.6; margin:0;">Wherever the same work repeats every day or week, there's an agent we can build to run alongside your team.</p>
     </div>
 
-    <div data-reveal style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;">
+    <div data-reveal class="services-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;">
       <div style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:36px; transition:border-color 0.2s;">
         <div style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center;">
           <div style="width:18px; height:14px; border:2px solid oklch(0.14 0.01 45); border-radius:2px;"></div>
@@ -235,12 +268,12 @@
     <div style="max-width:1400px; margin:0 auto;">
       <div data-reveal style="max-width:640px; margin:0 auto 80px; text-align:center;">
         <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; color: oklch(0.7 0.15 47); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">How We Work</div>
-        <h2 style="font-family:'Space Grotesk', sans-serif; font-size:42px; font-weight:700; margin:0 0 18px; line-height:1.15;">From messy process to running agent.</h2>
+        <h2 class="section-h2" style="font-family:'Space Grotesk', sans-serif; font-size:42px; font-weight:700; margin:0 0 18px; line-height:1.15;">From messy process to running agent.</h2>
         <p style="color: oklch(0.68 0.015 55); font-size:17px; line-height:1.6; margin:0;">A clear, low-risk path from first conversation to something that quietly works in the background.</p>
       </div>
 
-      <div data-reveal style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0; position:relative;">
-        <div style="position:absolute; top:23px; left:60px; right:60px; height:1px; background: oklch(0.35 0.02 45); z-index:0;"></div>
+      <div data-reveal class="process-grid" style="display:grid; grid-template-columns:repeat(4, 1fr); gap:0; position:relative;">
+        <div class="process-line" style="position:absolute; top:23px; left:60px; right:60px; height:1px; background: oklch(0.35 0.02 45); z-index:0;"></div>
 
         <div style="position:relative; z-index:1; padding:0 20px; text-align:center;">
           <div style="width:46px; height:46px; border-radius:50%; background: oklch(0.13 0.012 45); border:2px solid oklch(0.7 0.15 47); display:flex; align-items:center; justify-content:center; margin:0 auto 24px; font-family:'Space Grotesk', sans-serif; font-weight:700; color: oklch(0.7 0.15 47);">1</div>
@@ -268,13 +301,13 @@
 
   <!-- WHY / POSITIONING -->
   <section id="why" style="padding:130px 48px; max-width:1400px; margin:0 auto;">
-    <div data-reveal style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;">
+    <div data-reveal class="why-grid" style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:center;">
       <div>
         <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; color: oklch(0.7 0.15 47); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">Why Talos Foundry</div>
         <h2 style="font-family:'Space Grotesk', sans-serif; font-size:38px; font-weight:700; margin:0 0 24px; line-height:1.18;">A lean foundry that moves faster than shops twice our size.</h2>
         <p style="color: oklch(0.7 0.015 55); font-size:17px; line-height:1.7; margin:0;">No legacy playbooks, no bloated retainers, no game of telephone through account managers. You work straight with the people building your agents. Every engagement starts as a founding partnership &mdash; we learn your business, you shape how we build.</p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+      <div class="why-cards" style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
         <div style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:28px;">
           <h4 style="font-family:'Space Grotesk', sans-serif; font-size:17px; font-weight:600; margin:0 0 10px; color: oklch(0.72 0.16 47);">Senior-built</h4>
           <p style="color: oklch(0.65 0.015 55); font-size:14.5px; line-height:1.6; margin:0;">No account layers &mdash; you work directly with the people building your agents.</p>
@@ -296,10 +329,10 @@
   </section>
 
   <!-- CTA -->
-  <section id="contact" style="padding:110px 48px; margin:0 48px 48px; border-radius:16px; background: linear-gradient(135deg, oklch(0.22 0.02 45), oklch(0.15 0.014 45)); position:relative; overflow:hidden; text-align:center;">
+  <section id="contact" class="cta-section" style="padding:110px 48px; margin:0 48px 48px; border-radius:16px; background: linear-gradient(135deg, oklch(0.22 0.02 45), oklch(0.15 0.014 45)); position:relative; overflow:hidden; text-align:center;">
     <div style="position:absolute; top:-140px; left:50%; transform:translateX(-50%); width:700px; height:700px; border-radius:50%; background: radial-gradient(circle, oklch(0.65 0.16 45 / 0.25), transparent 65%); filter:blur(30px); animation: glow-pulse 7s ease-in-out infinite;"></div>
     <div data-reveal style="position:relative; z-index:1;">
-      <h2 style="font-family:'Space Grotesk', sans-serif; font-size:46px; font-weight:700; margin:0 0 20px; line-height:1.1;">What's eating your team's week?</h2>
+      <h2 class="cta-h2" style="font-family:'Space Grotesk', sans-serif; font-size:46px; font-weight:700; margin:0 0 20px; line-height:1.1;">What's eating your team's week?</h2>
       <p style="color: oklch(0.72 0.015 55); font-size:18px; margin:0 0 40px; max-width:560px; margin-left:auto; margin-right:auto;">Tell us about the workflow that never seems to end. We'll give you an honest read on whether an agent can take the weight off &mdash; no pitch, no pressure.</p>
       <a href="mailto:hello@talosfoundry.ai" style="background: oklch(0.7 0.15 47); color: oklch(0.14 0.01 45); font-weight:700; padding:18px 36px; border-radius:4px; text-decoration:none; font-size:17px; display:inline-block;">Book a Free Automation Audit &rarr;</a>
     </div>
