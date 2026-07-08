@@ -98,6 +98,13 @@
     .card-hover { transition: transform .35s cubic-bezier(.16,.8,.3,1), border-color .35s ease, box-shadow .35s ease; }
     .card-hover:hover { transform: translateY(-6px); border-color: oklch(0.58 0.14 45); box-shadow: 0 24px 48px oklch(0.04 0 0 / 0.45); }
 
+    .icon-badge { box-shadow: 0 0 0 0 oklch(0.7 0.15 47 / 0.45); transition: box-shadow .35s ease, transform .35s ease; }
+    .card-hover:hover .icon-badge { animation: icon-glow 1.6s ease-in-out infinite; transform: scale(1.06); }
+    @keyframes icon-glow {
+      0%, 100% { box-shadow: 0 0 0 0 oklch(0.7 0.15 47 / 0.5); }
+      50% { box-shadow: 0 0 22px 6px oklch(0.7 0.15 47 / 0.5); }
+    }
+
     .btn-primary { transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
     .btn-primary:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 16px 32px oklch(0.65 0.16 45 / 0.45); }
     .btn-primary:active { transform: translateY(-1px); }
@@ -276,41 +283,43 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" style="padding:130px 48px; max-width:1400px; margin:0 auto;">
-    <div data-reveal style="max-width:680px; margin:0 auto 70px; text-align:center;">
+  <section id="services" style="position:relative; padding:130px 48px; max-width:1400px; margin:0 auto; overflow:hidden;">
+    <div style="position:absolute; top:-160px; left:-160px; width:520px; height:520px; border-radius:50%; background: radial-gradient(circle, oklch(0.6 0.16 45 / 0.2), transparent 70%); filter:blur(50px); animation: glow-pulse 7s ease-in-out infinite; pointer-events:none;"></div>
+    <div style="position:absolute; bottom:-200px; right:-160px; width:560px; height:560px; border-radius:50%; background: radial-gradient(circle, oklch(0.65 0.16 45 / 0.16), transparent 70%); filter:blur(55px); animation: glow-pulse 8s ease-in-out infinite; animation-delay:1.5s; pointer-events:none;"></div>
+    <div data-reveal style="position:relative; z-index:1; max-width:680px; margin:0 auto 70px; text-align:center;">
       <div style="font-family:'IBM Plex Mono', monospace; font-size:13px; color: oklch(0.7 0.15 47); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:16px;">What We Build</div>
       <h2 class="section-h2" style="font-family:'Space Grotesk', sans-serif; font-size:42px; font-weight:700; margin:0 0 18px; line-height:1.15;">Agents that take the tedious part off your team's plate.</h2>
       <p style="color: oklch(0.68 0.015 55); font-size:17px; line-height:1.6; margin:0;">Wherever the same work repeats every day or week, there's an agent we can build to run alongside your team.</p>
     </div>
 
-    <div class="services-grid" style="display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;">
+    <div class="services-grid" style="position:relative; z-index:1; display:grid; grid-template-columns:repeat(2, 1fr); gap:24px;">
       <div data-reveal class="card-hover" style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:36px;">
-        <div style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:18px; height:14px; border:2px solid oklch(0.14 0.01 45); border-radius:2px;"></div>
+        <div class="icon-badge" style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.14 0.01 45)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg>
         </div>
         <h3 style="font-family:'Space Grotesk', sans-serif; font-size:21px; font-weight:600; margin:0 0 12px;">Reports &amp; Analysis</h3>
         <p style="color: oklch(0.68 0.015 55); font-size:15.5px; line-height:1.65; margin:0;">Pull the numbers, build the recurring report, and surface what's worth a closer look &mdash; so the deck's ready before you've had your coffee.</p>
       </div>
 
       <div data-reveal class="card-hover d1" style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:36px;">
-        <div style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:20px; height:14px; border:2px solid oklch(0.14 0.01 45); border-radius:2px; position:relative;"></div>
+        <div class="icon-badge" style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.14 0.01 45)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 8.97 5.7a1.94 1.94 0 0 0 2.06 0L22 7"/></svg>
         </div>
         <h3 style="font-family:'Space Grotesk', sans-serif; font-size:21px; font-weight:600; margin:0 0 12px;">Inbox &amp; Email Ops</h3>
         <p style="color: oklch(0.68 0.015 55); font-size:15.5px; line-height:1.65; margin:0;">Sort, draft, route, and follow up &mdash; the inbox stays under control and every reply is ready for you to send or tweak.</p>
       </div>
 
       <div data-reveal class="card-hover d2" style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:36px;">
-        <div style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:16px; height:16px; border:2px solid oklch(0.14 0.01 45); border-radius:50%;"></div>
+        <div class="icon-badge" style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.14 0.01 45)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg>
         </div>
         <h3 style="font-family:'Space Grotesk', sans-serif; font-size:21px; font-weight:600; margin:0 0 12px;">Marketing Operations</h3>
         <p style="color: oklch(0.68 0.015 55); font-size:15.5px; line-height:1.65; margin:0;">Briefs, first-draft content, scheduling, and performance rollups &mdash; the grunt work is done, you keep the creative calls.</p>
       </div>
 
       <div data-reveal class="card-hover d3" style="background: oklch(0.19 0.013 45); border:1px solid oklch(0.32 0.02 45); border-radius:8px; padding:36px;">
-        <div style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:18px; height:18px; border:2px solid oklch(0.14 0.01 45); border-radius:2px; transform:rotate(45deg);"></div>
+        <div class="icon-badge" style="width:44px; height:44px; border-radius:6px; background: linear-gradient(145deg, oklch(0.7 0.15 47), oklch(0.5 0.13 40)); margin-bottom:22px; display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="oklch(0.14 0.01 45)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
         </div>
         <h3 style="font-family:'Space Grotesk', sans-serif; font-size:21px; font-weight:600; margin:0 0 12px;">Custom Ops Workflows</h3>
         <p style="color: oklch(0.68 0.015 55); font-size:15.5px; line-height:1.65; margin:0;">Data entry, reconciliation, the copy-paste between tools &mdash; whatever glue work is eating your week, we build an agent to carry it.</p>
